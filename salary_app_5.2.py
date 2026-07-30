@@ -1,4 +1,4 @@
-"""SalaryScope — developer salary estimator."""
+"""salarycalc — developer salary estimator."""
 
 from pathlib import Path
 
@@ -9,7 +9,7 @@ import pandas as pd
 import streamlit as st
 
 
-APP_TITLE = "SalaryScope"
+APP_TITLE = "Salarycalc"
 MODEL_PATH = Path(__file__).with_name("salary_5.2.pkl")
 
 USER_NUMERIC_FEATURES = [
@@ -160,28 +160,6 @@ def apply_styles():
     st.markdown(
         """
         <style>
-            /* ==============================================================
-               SalaryScope — design system (light theme, one style block)
-               Palette : warm off-white · deep forest/ink · lime · coral
-               Fonts   : Space Grotesk (display) · Inter (body)
-               Index   :
-                 1. Fonts & design tokens
-                 2. App shell + background
-                 3. Content width & base type
-                 4. Hero hook (text + layered glass visual)
-                 5. Stat band
-                 6. Section headings & anchors
-                 7. Form card & subsections
-                 8. Inputs (selects + unified number control)
-                 9. Submit button
-                10. Result card + interpretation
-                11. Experience-curve chart card
-                12. Empty state
-                13. Insight / methodology cards
-                14. Footnote
-                15. Responsive breakpoints
-               ============================================================== */
-
             /* 1. FONTS & DESIGN TOKENS ---------------------------------- */
             @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -1590,14 +1568,3 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-st.markdown(
-    """
-    <p class="small-note">
-        SalaryScope is an educational machine-learning project. Estimates are
-        benchmarks based on survey data and should not be treated as guaranteed offers.
-    </p>
-    """,
-    unsafe_allow_html=True,
-)
-    
