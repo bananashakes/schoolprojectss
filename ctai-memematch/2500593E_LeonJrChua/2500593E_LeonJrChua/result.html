@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Preview, caption and post your matched MemeMatch result." />
+  <title>MemeMatch | Your Match</title>
+  <link rel="icon" href="assets/brand/memematch-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/config.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@6.3.12/dist/amazon-cognito-identity.min.js" defer></script>
+  <script src="js/cognito.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/result.js" defer></script>
+</head>
+<body data-page="create">
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a href="index.html" class="brand-mark" aria-label="MemeMatch home"><img src="assets/brand/memematch-logo.svg" alt="" class="brand-logo" width="46" height="46" /><span>MemeMatch</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" data-page-link="home">Feed</a>
+        <a href="create.html" data-page-link="create">Create Meme</a>
+        <a href="profile.html" data-page-link="profile">Profile</a>
+        <a href="remix.html" data-page-link="remix">Remix</a>
+        <a href="login.html" data-page-link="login" class="auth-link" id="accountLink">Account</a>
+      </div>
+
+      <div class="nav-bell" id="navBell">
+        <button class="bell-button" id="bellButton" type="button" aria-label="Notifications" aria-expanded="false" aria-haspopup="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.7 21a2 2 0 0 1-3.4 0" /></svg>
+          <span class="bell-badge hidden" id="bellBadge">0</span>
+        </button>
+
+        <div class="notification-panel hidden" id="notificationPanel" role="region" aria-label="Notifications"></div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="mainContent" class="page-shell">
+    <section class="section-stack" id="resultContent" aria-labelledby="resultTitle">
+      <div class="compact-heading">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Match caught</span>
+        <h1 class="page-title" id="resultTitle">Your meme twin has entered the chat.</h1>
+        <p class="page-copy">Check the match, write the punchline, then send it to the community corkboard.</p>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-card">
+          <div class="result-comparison">
+            <div class="result-tile">
+              <img id="uploadedResultImage" alt="Uploaded expression" />
+              <div class="result-tile-label">Your reaction</div>
+            </div>
+
+            <div class="result-tile">
+              <img id="matchedMemeImage" alt="Matched meme" />
+              <div class="result-tile-label" id="matchedMemeName">Matched meme</div>
+            </div>
+          </div>
+
+          <div class="analysis-pill-row">
+            <div class="analysis-pill"><span>Emotion</span><strong id="detectedEmotion">—</strong></div>
+          </div>
+
+          <div class="confidence-meter">
+            <div class="analysis-pill confidence-pill"><span>Confidence</span><strong id="confidenceScore">—</strong></div>
+            <div class="confidence-meter-track">
+              <span class="hand-note result-hand-note">strongest mood wins</span>
+              <div class="confidence-bar" aria-label="Expression confidence"><span id="confidenceBar"></span></div>
+            </div>
+          </div>
+
+          <!-- Which model actually answered, plus the face-verification result.
+               Makes the fallback path visible instead of silent. -->
+          <div class="analysis-notes" id="analysisNotes" aria-label="How this result was produced"></div>
+        </div>
+
+        <form class="result-card" id="postForm" novalidate>
+          <div>
+            <span class="status-badge info">Ready to post</span>
+            <h2>Write the punchline</h2>
+            <p>Short, specific and slightly unhinged usually wins. Amazon Comprehend reads the tone and calls it out when your caption fights your face.</p>
+          </div>
+
+          <div class="field-group">
+            <label for="caption">Caption</label>
+            <textarea id="caption" name="caption" maxlength="160" aria-describedby="captionHelp captionError" required></textarea>
+            <small id="captionHelp">Maximum 160 characters.</small>
+            <span class="field-error" id="captionError" role="alert"></span>
+          </div>
+
+          <div class="result-actions">
+            <button class="btn btn-primary" type="submit">Post to feed</button>
+            <button class="btn btn-secondary" id="analyseBtn" type="button">Find another meme</button>
+            <a class="btn btn-secondary" href="create.html">Try another photo</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="empty-state hidden" id="emptyResult">
+      <h1>No match yet</h1>
+      <p>Choose a reaction photo first, then come back for the reveal.</p>
+      <a class="btn btn-primary" href="create.html">Choose a photo</a>
+    </section>
+  </main>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

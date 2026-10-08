@@ -1,0 +1,835 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Platform</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>UiPath.Vision.Core.OCR</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="919.6,11288.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="reportCreated" />
+      <Variable x:TypeArguments="x:String" Name="reportPath" />
+      <Variable x:TypeArguments="x:String" Default="report" Name="reportFolderPath" />
+      <Variable x:TypeArguments="ui:QueueItem" Name="runRequest" />
+      <Variable x:TypeArguments="x:String" Default="https://discord.com/api/webhooks/1533120610056540241/iaLgOdOxgwOBFBGD7GXXhls8gydzLoMr7d6SOOvC-6GTQPtHXGqpJ7MvKft4gCsO_4u_" Name="discordWebhookFallback" />
+      <Variable x:TypeArguments="x:String" Name="discordAlertText">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="errorLogText">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="failedSymbols">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="summaryFacts">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="runTimestamp" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="screenshotSaved" />
+      <Variable x:TypeArguments="x:String" Name="digestText">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="discordMessageText">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="discordSendSuccess" />
+      <Variable x:TypeArguments="x:String" Name="discordErrorMessage">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="processedStockCount" />
+      <Variable x:TypeArguments="x:Int32" Default="10" Name="stockLimit" />
+      <Variable x:TypeArguments="x:String" Default="output\error_log.txt" Name="errorLogFilePath" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="ocrFailedCount" />
+      <Variable x:TypeArguments="x:String" Default="https://finance.yahoo.com/quote/" Name="baseStockUrl" />
+      <Variable x:TypeArguments="x:String" Default="output\ocr_results.csv" Name="outputCsvPath" />
+      <Variable x:TypeArguments="x:String" Default="input\stock_watchlist.xlsx" Name="watchListPath" />
+      <Variable x:TypeArguments="x:String" Default="output\processed_stock_results.csv" Name="processedCsvPath" />
+      <Variable x:TypeArguments="x:String" Default="scripts\stock_dashboard.py" Name="dashboardScriptPath" />
+      <Variable x:TypeArguments="x:String" Default="http://localhost:8501" Name="dashboardUrl" />
+      <Variable x:TypeArguments="x:String" Default="output\dashboard_screenshot.png" Name="dashboardScreenshotPath" />
+      <Variable x:TypeArguments="x:String" Default="Not generated" Name="digestSource" />
+      <Variable x:TypeArguments="x:String" Default="https://chatgpt.com/" Name="chatGptUrl" />
+      <Variable x:TypeArguments="x:String" Name="discordWebhookUrl">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="discordStatusCode" />
+      <Variable x:TypeArguments="x:String" Name="priceTable" />
+      <Variable x:TypeArguments="x:String" Name="reportMessageText" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap2010:Annotation.AnnotationText="Orchestrates the full AnalyseTS run: claims any queue-triggered request, resolves the Discord webhook (Orchestrator asset with a local fallback), invokes the three worker workflows in sequence, sends the routine Discord stock update, and, if any stage recorded an error. an txt file builds and sends a separate urgent alert with the error log attached, before marking the queue item complete.&#xA;&#xA;The watchlist supports up to 20 stock entries, but the bot is configured to process only the first 10 marked &quot;Yes&quot; under Include, keeping the run controlled and aligned with the project proposal while still letting the user stage extra stocks." DisplayName="AnalyseTS Main Process" sap:VirtualizedContainerService.HintSize="555.2,8428" sap2010:WorkflowViewState.IdRef="Sequence_49">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch sap2010:Annotation.AnnotationText="Claims the queue item that requested this run, so the bot can mark it complete afterwards and the queue trigger does not keep launching jobs for an item nobody consumed. Wrapped in a Try Catch because the same process is also started manually and on a schedule, where no queue item exists." DisplayName="Try Catch - Claim Queue Run Request" sap:VirtualizedContainerService.HintSize="521.6,853.6" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <TryCatch.Try>
+          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="449.6,226.4" sap2010:WorkflowViewState.IdRef="Sequence_52">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:GetQueueItem ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Get Transaction Item - Claim Run Request" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="416,166.4" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="AnalyseTsRunRequests" TimeoutMS="10000" TransactionItem="[runRequest]" />
+          </Sequence>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_8">
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="449.6,303.2" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage sap2010:Annotation.AnnotationText="Logged at Info, not Warn, because an empty queue is the normal outcome for a manually started or time-triggered run. This Catch exists to make that expected, not to report a fault" DisplayName="Log Message - No Queue Run Request" sap:VirtualizedContainerService.HintSize="416,243.2" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;[INFO] No queue run request was claimed. The run was started directly rather than by a queue trigger. &quot; &amp; exception.Message]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:LogMessage>
+              </Sequence>
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+        <TryCatch.Finally>
+          <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_53">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </TryCatch.Finally>
+      </TryCatch>
+      <If sap2010:Annotation.AnnotationText="Removes the previous run's error log before this run begins, so the presence of output\error_log.txt always means the current run produced warnings or errors. Deleting beforehand rather than after sending means the log survives on disk for inspection, which matters most on the runs where Discord delivery itself failed." Condition="[System.IO.File.Exists(errorLogFilePath)]" DisplayName="If - Old Error Log Exists" sap:VirtualizedContainerService.HintSize="521.6,588.8" sap2010:WorkflowViewState.IdRef="If_9">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,267.2" sap2010:WorkflowViewState.IdRef="Sequence_50">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Delete ContinueOnError="{x:Null}" Path="{x:Null}" sap2010:Annotation.AnnotationText="Removes the error log left by the previous run before this one starts. Without this a clean run would find the old file still on disk, and the final check would send an urgent Discord alert about problems that were already fixed." DisplayName="Delete File - Remove Previous Run Error Log" sap:VirtualizedContainerService.HintSize="416,207.2" sap2010:WorkflowViewState.IdRef="Delete_1" ResourceFile="[LocalResource.FromPath(errorLogFilePath)]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:Delete>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_51">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <TryCatch sap2010:Annotation.AnnotationText="Reads the Discord webhook URL from an Orchestrator asset so the delivery target can be changed by an operator without editing or republishing the automation. The Catch only logs, because recovery is handled by the check below." DisplayName="Try Catch - Get Discord Webhook From Orchestrator" sap:VirtualizedContainerService.HintSize="521.6,931.2" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <TryCatch.Try>
+          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="449.6,336.8" sap2010:WorkflowViewState.IdRef="Sequence_43">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:GetRobotAsset TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Reads the Discord webhook from an Orchestrator asset rather than storing it in the workflow. The webhook is a credential, so keeping it in Orchestrator means it can be changed without republishing the process, and it never appears in the project files." AssetName="DiscordWebhookUrl" CacheStrategy="None" DisplayName="Get Asset - Read Discord Webhook URL" sap:VirtualizedContainerService.HintSize="416,276.8" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+              <ui:GetRobotAsset.Value>
+                <OutArgument x:TypeArguments="x:String">[discordWebhookUrl]</OutArgument>
+              </ui:GetRobotAsset.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:GetRobotAsset>
+          </Sequence>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="449.6,286.4" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage sap2010:Annotation.AnnotationText="Logged at Warn rather than Error, since the check below still has a local fallback webhook to fall back on. This isn't a run-ending problem by itself." DisplayName="Log Message - Webhook Asset Unavailable" sap:VirtualizedContainerService.HintSize="416,226.4" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Warn" Message="[&quot;[WARNING] Could not read the DiscordWebhookUrl asset from Orchestrator. Falling back to the local value. Error: &quot; &amp; exception.Message]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:LogMessage>
+              </Sequence>
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+        <TryCatch.Finally>
+          <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_44">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </TryCatch.Finally>
+      </TryCatch>
+      <If sap2010:Annotation.AnnotationText="Covers both ways the asset can fail to provide a usable value. A missing asset raises an exception and is caught above; an asset that exists but holds an empty or malformed value returns normally and would otherwise leave the bot with no webhook at all. Checking the value rather than trusting the activity catches both, and falling back keeps the run useful when Orchestrator is unreachable." Condition="[String.IsNullOrWhiteSpace(discordWebhookUrl) OrElse Not discordWebhookUrl.StartsWith(&quot;https://&quot;)]" DisplayName="If - Webhook URL Is Unusable" sap:VirtualizedContainerService.HintSize="521.6,942.4" sap2010:WorkflowViewState.IdRef="If_8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,604" sap2010:WorkflowViewState.IdRef="Sequence_47">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap2010:Annotation.AnnotationText="Falls back to a locally defined webhook when the Orchestrator asset could not be read. This lets the process still run and still deliver its update when Orchestrator is unreachable or the asset has not been created yet, which matters for testing on a machine that is not connected." DisplayName="Assign - Use Fallback Webhook" sap:VirtualizedContainerService.HintSize="416,284.8" sap2010:WorkflowViewState.IdRef="Assign_33">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[discordWebhookUrl]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[discordWebhookFallback]</InArgument>
+              </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Assign>
+            <Assign sap2010:Annotation.AnnotationText="Logs the fallback as a Warning in errorLogText for the job history only, not the user-facing alert. Which webhook the bot used doesn't change what the report says, so it isn't worth surfacing to the operator." DisplayName="Assign - Record Webhook Fallback" sap:VirtualizedContainerService.HintSize="416,259.2" sap2010:WorkflowViewState.IdRef="Assign_34">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[errorLogText]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[errorLogText &amp; "[WARNING] The Orchestrator asset DiscordWebhookUrl was missing or invalid. The bot used its configured fallback webhook instead." &amp; Environment.NewLine]</InArgument>
+              </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Assign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_48">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+      <TryCatch sap2010:Annotation.AnnotationText="Top-level error boundary for the entire bot. Catches any unhandled exception from watchlist reading, OCR collection, or Python processing so the bot can still write an error log instead of crashing silently." DisplayName="Try Catch - Main AnalyseTS Process" sap:VirtualizedContainerService.HintSize="521.6,4860.8" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <TryCatch.Try>
+          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="520,4024" sap2010:WorkflowViewState.IdRef="Sequence_35">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" sap2010:Annotation.AnnotationText="Stage one. Reads the Excel watchlist, opens each included stock's quote page in the browser and captures the page text with OCR, then writes everything to the raw OCR CSV. Returns the processed stock count, the OCR failure count and the failed symbols so the later summary can report them, and appends to the shared error log if anything went wrong." DisplayName="Invoke _1_GetStockData - Read Watchlist And Capture OCR" sap:VirtualizedContainerService.HintSize="486.4,318.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="_1_GetStockData.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="watchListPath">[watchListPath]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="errorLogText">[errorLogText]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:Int32" x:Key="ocrFailedCount">[ocrFailedCount]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="failedSymbols">[failedSymbols]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:Int32" x:Key="processedStockCount">[processedStockCount]</InOutArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="stockLimit">[stockLimit]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="baseStockUrl">[baseStockUrl]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="outputCsvPath">[outputCsvPath]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" sap2010:Annotation.AnnotationText="Runs process_ocr_results.py against ocr_results.csv to produce output\processed_stock_results.csv, containing validated figures, per-row status, and the run summary in row 0 that the rest of the bot reads from." DisplayName="Invoke _2_ProcessResults - Clean And Validate With Python" sap:VirtualizedContainerService.HintSize="451.2,269.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="_2_ProcessResults.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="processedCsvPath">[processedCsvPath]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="errorLogText">[errorLogText]</InOutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" sap2010:Annotation.AnnotationText="Launches the Streamlit dashboard, screenshots it, gets a plain-English digest from ChatGPT (or a template fallback), and builds priceTable, that includes Symbol, Price and % change." DisplayName="Invoke _3_GenerateReport - Dashboard And ChatGPT Digest" sap:VirtualizedContainerService.HintSize="451.2,253.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="_3_GenerateReport.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="processedCsvPath">[processedCsvPath]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="errorLogText">[errorLogText]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dashboardScriptPath">[dashboardScriptPath]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="summaryFacts">[summaryFacts]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="runTimestamp">[runTimestamp]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="chatGptUrl">[chatGptUrl]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="digestText">[digestText]</OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="digestSource">[digestSource]</OutArgument>
+                <InOutArgument x:TypeArguments="x:Boolean" x:Key="screenshotSaved">[screenshotSaved]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="dashboardScreenshotPath">[dashboardScreenshotPath]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="dashboardUrl">[dashboardUrl]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="priceTable">[priceTable]</OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" sap2010:Annotation.AnnotationText="Turns the digest, price table and run figures into a formatted Word document and a PDF copy, saved into the report folder with a timestamped name so reports build up a history. Runs after stage three because everything it writes was produced there. Returns a created flag so the report send below can be skipped cleanly if Word was unavailable." DisplayName="Invoke _5_WordFile - Generate Word Report" sap:VirtualizedContainerService.HintSize="451.2,302.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="_5_WordFile.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_DigestText">[digestText]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_PriceTable">[priceTable]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SummaryFacts">[summaryFacts]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_RunTimestamp">[runTimestamp]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_DigestSource">[digestSource]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ScreenshotPath">[dashboardScreenshotPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ReportFolderPath">[reportFolderPath]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_ProcessedStockCount">[processedStockCount]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_OcrFailedCount">[ocrFailedCount]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FailedSymbols">[failedSymbols]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_ReportPath">[reportPath]</OutArgument>
+                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_ReportCreated">[reportCreated]</OutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ErrorLogText">[errorLogText]</InOutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <Assign sap2010:Annotation.AnnotationText="Assembles the routine Discord update from the pieces the earlier stages produced. The price table is placed above the digest because the sender truncates any message over Discord's limit by cutting the end, so an unusually long digest loses commentary rather than data. The table is wrapped in a code block so Discord renders it in a fixed width font and the padding built with PadRight and PadLeft lines up." DisplayName="Assign - Build Discord Stock Message" sap:VirtualizedContainerService.HintSize="486.4,333.6" sap2010:WorkflowViewState.IdRef="Assign_29">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[discordMessageText]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["**AnalyseTS Stock Watchlist Update**" &amp; Environment.NewLine &amp; "Run: " &amp; runTimestamp &amp; "  |  Digest source: " &amp; digestSource &amp; Environment.NewLine &amp; Environment.NewLine &amp; "```" &amp; Environment.NewLine &amp; priceTable &amp; "```" &amp; Environment.NewLine &amp; Environment.NewLine &amp; digestText]</InArgument>
+              </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Assign>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" sap2010:Annotation.AnnotationText="Sends the routine update using the reusable Discord sender, with the dashboard screenshot attached if one was saved. Passes IsUrgent as False so the message arrives under the normal bot name. Reads back Success, StatusCode and ErrorMessage instead of letting a failed send throw, because a run that produced a good digest but could not deliver it is still a successful analysis." DisplayName="Invoke _4_SendDiscordMessage - Send Stock Update" sap:VirtualizedContainerService.HintSize="486.4,318.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="_4_SendDiscordMessage.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_ErrorMessage">[discordErrorMessage]</OutArgument>
+                <OutArgument x:TypeArguments="x:Int32" x:Key="out_StatusCode">[discordStatusCode]</OutArgument>
+                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Success">[discordSendSuccess]</OutArgument>
+                <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsUrgent">False</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentPath">[dashboardScreenshotPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_MessageText">[discordMessageText]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_WebhookUrl">[discordWebhookUrl]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <If sap2010:Annotation.AnnotationText="Checks the sender's own out_Success rather than assuming delivery, so a failed send gets recorded for the run alert without stopping the workflow. The digest and price table were still generated successfully either way." Condition="[Not discordSendSuccess]" DisplayName="If - Discord Stock Update Failed" sap:VirtualizedContainerService.HintSize="486.4,657.6" sap2010:WorkflowViewState.IdRef="If_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,352" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap2010:Annotation.AnnotationText="Adds a warning line to the shared error log when the routine update could not be delivered. This is what makes the failure visible, since the send itself does not throw. It also means the urgent alert later in the run will fire, so the user is told through a second channel that the first message never arrived." DisplayName="Assign - Record Discord Send Failure" sap:VirtualizedContainerService.HintSize="416,292" sap2010:WorkflowViewState.IdRef="Assign_30">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[errorLogText]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[errorLogText &amp; "[WARNING] The Discord stock update could not be delivered. Status: " &amp; discordStatusCode.ToString &amp; ". " &amp; discordErrorMessage &amp; Environment.NewLine]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <If sap2010:Annotation.AnnotationText="Sends the report only when Word actually produced one and the PDF export succeeded. Checking the PDF specifically rather than just the created flag matters because the export is a separate step inside stage five and can fail on its own, and attaching a file that does not exist would fail the send." Condition="[reportCreated AndAlso System.IO.File.Exists(reportPath.Replace(&quot;.docx&quot;, &quot;.pdf&quot;))]" DisplayName="If - Word Report Was Created" sap:VirtualizedContainerService.HintSize="486.4,1510.4" sap2010:WorkflowViewState.IdRef="If_11">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484.8,1213.6" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap2010:Annotation.AnnotationText="One line of text to accompany the attachment. Kept short because the report itself carries the detail, and the stock update sent just above already delivered the headline figures." DisplayName="Assign - Build Discord Report Message" sap:VirtualizedContainerService.HintSize="451.2,252" sap2010:WorkflowViewState.IdRef="Assign_35">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[reportMessageText]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">["Full AnalyseTS report for " + runTimestamp + " is attached. It contains the market digest, the price summary, the dashboard image and the run statistics."]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" sap2010:Annotation.AnnotationText="Third call to the reusable Discord sender in a single run, after the stock update and before the possible error alert. The PDF is attached rather than the Word file because Discord previews a PDF inline on desktop and mobile, while a docx only downloads. The docx stays in the report folder as the archived original." DisplayName="Invoke _4_SendDiscordMessage - Send Word Report" sap:VirtualizedContainerService.HintSize="451.2,302.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="_4_SendDiscordMessage.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_WebhookUrl">[discordWebhookUrl]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_MessageText">[reportMessageText]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentPath">[reportPath.Replace(".docx", ".pdf")]</InArgument>
+                      <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsUrgent">False</InArgument>
+                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Success">[discordSendSuccess]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_StatusCode">[discordStatusCode]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_ErrorMessage">[discordErrorMessage]</OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                  <If sap2010:Annotation.AnnotationText="Catches a failed report delivery the same way the stock update is checked. The sender never throws, so without this check a report that never arrived would leave no trace anywhere." Condition="[Not discordSendSuccess]" DisplayName="If - Report Send Failed" sap:VirtualizedContainerService.HintSize="451.2,599.2" sap2010:WorkflowViewState.IdRef="If_12">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,319.2" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap2010:Annotation.AnnotationText="Records the delivery failure and names the local path, so the user can retrieve the report manually even though it never reached the channel. WARNING rather than CRITICAL because the stock update itself already went out." DisplayName="Assign - Record Report Send Failure" sap:VirtualizedContainerService.HintSize="416,259.2" sap2010:WorkflowViewState.IdRef="Assign_36">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[errorLogText]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[errorLogText + "[WARNING] Word report could not be delivered to Discord. Status: " + discordStatusCode.ToString + ". Error: " + discordErrorMessage + " The report is still saved at " + reportPath + Environment.NewLine]</InArgument>
+                          </Assign.Value>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484.8,89.6" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="520,554.4" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage sap2010:Annotation.AnnotationText="Logs the exception that ended the main pipeline, at Error level so it shows in Orchestrator without opening the attached log file. The Catch does not rethrow, because the error reporting block below still needs to run and tell the user what happened." DisplayName="Log Message - Main Workflow Failed" sap:VirtualizedContainerService.HintSize="486.4,268" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Error" Message="[&quot;Main workflow failed. Error: &quot; + exception.Message]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:LogMessage>
+                <Assign sap2010:Annotation.AnnotationText="Stores fatal workflow-level errors in errorLogText so that an urgent error log can be created for unattended notification." DisplayName="Assign - Add Main Workflow Critical Error" sap:VirtualizedContainerService.HintSize="486.4,226.4" sap2010:WorkflowViewState.IdRef="Assign_28">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[errorLogText]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[errorLogText + "[CRITICAL] Main workflow failed before completing the task. Error: " + exception.Message + Environment.NewLine]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+              </Sequence>
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+        <TryCatch.Finally>
+          <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="520,89.6" sap2010:WorkflowViewState.IdRef="Sequence_37">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </TryCatch.Finally>
+      </TryCatch>
+    </Sequence>
+    <If sap2010:Annotation.AnnotationText="Checks whether any stage recorded a warning or error during this run. The test is on errorLogText rather than on the log file, because the file does not exist yet at this point,  it is created inside this branch. The variable is the record of what happened; the file is how that record gets delivered." Condition="[Not String.IsNullOrWhiteSpace(errorLogText)]" DisplayName="If - Run Produced Warnings Or Errors" sap:VirtualizedContainerService.HintSize="555.2,2188.8" sap2010:WorkflowViewState.IdRef="If_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484.8,1883.2" sap2010:WorkflowViewState.IdRef="Sequence_33">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteTextFile FileName="{x:Null}" Output="{x:Null}" sap2010:Annotation.AnnotationText="Writes the accumulated error log to a text file so it can be attached to the urgent Discord alert. Adds a generation timestamp, the OCR failure count and the failed symbols at the bottom, so the file is readable on its own without cross referencing the Discord message." DisplayName="Write Text File - Save Urgent Error Log" File="[LocalResource.FromPath(errorLogFilePath)]" sap:VirtualizedContainerService.HintSize="451.2,285.6" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[&quot;AnalyseTS Error Log&quot; + Environment.NewLine +&#xA;&quot;Generated at: &quot; + Now.ToString(&quot;yyyy-MM-dd HH:mm:ss&quot;) + Environment.NewLine +&#xA;Environment.NewLine +&#xA;errorLogText +&#xA;Environment.NewLine +&#xA;&quot;OCR failed count: &quot; + ocrFailedCount.ToString + Environment.NewLine +&#xA;If(String.IsNullOrWhiteSpace(failedSymbols), &quot;Failed symbols: None&quot;, &quot;Failed symbols: &quot; + failedSymbols)]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:WriteTextFile>
+          <Assign sap2010:Annotation.AnnotationText="Builds the urgent alert from the run facts collected across all stages. The message states the OCR failure count, the failed symbols, where the digest came from, whether a screenshot was captured and whether the routine update was delivered, so a run with one minor warning is distinguishable from a broken one without opening the attached log. This is why the project carries no separate severity flag." DisplayName="Assign - Build Discord Error Alert" sap:VirtualizedContainerService.HintSize="451.2,333.6" sap2010:WorkflowViewState.IdRef="Assign_31">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[discordAlertText]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[If(errorLogText.Contains("[CRITICAL]"), "**AnalyseTS Run Alert — CRITICAL**", "**AnalyseTS Run Notes**") &amp; Environment.NewLine &amp; "Run: " &amp; If(String.IsNullOrWhiteSpace(runTimestamp), Now.ToString("yyyy-MM-dd HH:mm:ss"), runTimestamp) &amp; Environment.NewLine &amp; Environment.NewLine &amp; "This run finished with warnings or errors. The full log is attached." &amp; Environment.NewLine &amp; Environment.NewLine &amp; "Stocks processed: " &amp; processedStockCount.ToString &amp; Environment.NewLine &amp; "OCR failures: " &amp; ocrFailedCount.ToString &amp; If(String.IsNullOrWhiteSpace(failedSymbols), "", " (" &amp; failedSymbols &amp; ")") &amp; Environment.NewLine &amp; "Digest source: " &amp; digestSource &amp; Environment.NewLine &amp; "Dashboard screenshot: " &amp; If(screenshotSaved, "saved", "NOT SAVED") &amp; Environment.NewLine &amp; "Stock update delivered: " &amp; If(discordSendSuccess, "yes", "no")]</InArgument>
+            </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Assign>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" sap2010:Annotation.AnnotationText="Sends the error log as a second, urgent message using the same reusable sender as the stock update. It sits outside the main Try Catch so it still runs when the pipeline failed part way through, and it is deliberately not conditional on the stock update having succeeded, because a failed update is itself something worth being told about." DisplayName="Invoke _4_SendDiscordMessage - Send Error Alert" sap:VirtualizedContainerService.HintSize="451.2,302.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="_4_SendDiscordMessage.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_ErrorMessage">[discordErrorMessage]</OutArgument>
+              <OutArgument x:TypeArguments="x:Int32" x:Key="out_StatusCode">[discordStatusCode]</OutArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Success">[discordSendSuccess]</OutArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsUrgent">[errorLogText.Contains("[CRITICAL]")]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_AttachmentPath">[errorLogFilePath]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_MessageText">[discordAlertText]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_WebhookUrl">[discordWebhookUrl]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <If sap2010:Annotation.AnnotationText="The one case a Discord failure can't be reported through Discord. If the alert itself doesn't send, the failure is logged at Error and a DELIVERY_FAILED.txt marker is left in the output folder, so an operator checking the job list, not waiting on a message, is how this gets noticed." Condition="[Not discordSendSuccess]" DisplayName="If - Error Alert Could Not Be Delivered" sap:VirtualizedContainerService.HintSize="451.2,901.6" sap2010:WorkflowViewState.IdRef="If_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,588.8" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage sap2010:Annotation.AnnotationText="Logged as [CRITICAL] rather than [WARNING] because at this point neither the routine update nor the alert reached Discord. This is the one failure mode with no remaining notification path." DisplayName="Log Message - Alert Delivery Failed" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Error" Message="[&quot;[CRITICAL] The run alert could not be delivered to Discord. Status: &quot; &amp; discordStatusCode.ToString &amp; &quot;. &quot; &amp; discordErrorMessage &amp; &quot; The full log remains at &quot; &amp; errorLogFilePath]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:LogMessage>
+                <ui:WriteTextFile FileName="{x:Null}" Output="{x:Null}" sap2010:Annotation.AnnotationText="Last line of error handling. If even the urgent alert could not reach Discord, this writes a local file recording the status code, the error and where the full log lives. Without it a run that failed and then failed to report the failure would leave no trace at all on the machine." DisplayName="Write Text File - Flag Undelivered Alert" File="[LocalResource.FromPath(&quot;output\DELIVERY_FAILED.txt&quot;)]" sap:VirtualizedContainerService.HintSize="416,276.8" sap2010:WorkflowViewState.IdRef="WriteTextFile_2" Text="[&quot;AnalyseTS could not deliver its run alert to Discord.&quot; &amp; Environment.NewLine &amp; &quot;Time: &quot; &amp; Now.ToString(&quot;yyyy-MM-dd HH:mm:ss&quot;) &amp; Environment.NewLine &amp; &quot;Status: &quot; &amp; discordStatusCode.ToString &amp; Environment.NewLine &amp; discordErrorMessage &amp; Environment.NewLine &amp; Environment.NewLine &amp; &quot;The full run log is in &quot; &amp; errorLogFilePath]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:WriteTextFile>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484.8,89.6" sap2010:WorkflowViewState.IdRef="Sequence_34">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If sap2010:Annotation.AnnotationText="Marks the queue item Successful once the run has finished. Without this the item stays in a New or In Progress state and the queue trigger would keep starting jobs for a request that has already been served. The check means a run started from the Assistant or a time trigger simply skips this, so the same process works under all three ways of starting it." Condition="[runRequest IsNot Nothing]" DisplayName="If - Run Was Started By A Queue Item" sap:VirtualizedContainerService.HintSize="555.2,648.8" sap2010:WorkflowViewState.IdRef="If_10">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,319.2" sap2010:WorkflowViewState.IdRef="Sequence_55">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:SetTransactionStatus ContinueOnError="{x:Null}" Reason="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Marks the claimed queue item Successful so it isn't picked up again and doesn't keep re-triggering the queue trigger. Only reached when runRequest is populated, meaning only on a run that a queue item actually started" DisplayName="Set Transaction Status - Mark Run Request Complete" ErrorType="Business" sap:VirtualizedContainerService.HintSize="416,259.2" sap2010:WorkflowViewState.IdRef="SetTransactionStatus_1" Status="Successful" TransactionItem="[runRequest]">
+            <ui:SetTransactionStatus.Analytics>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+            </ui:SetTransactionStatus.Analytics>
+            <ui:SetTransactionStatus.Output>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+            </ui:SetTransactionStatus.Output>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:SetTransactionStatus>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_56">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

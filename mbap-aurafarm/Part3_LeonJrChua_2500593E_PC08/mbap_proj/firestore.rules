@@ -1,0 +1,67 @@
+rules_version = '2';
+
+// security rules for AuraFarm
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /posts/{postId} {
+      // any logged in user can read the feed
+      allow read: if request.auth != null;
+
+      // a user can only create a card under their own uid
+      allow create: if request.auth != null
+                    && request.auth.uid == request.resource.data.userId;
+
+      allow update: if request.auth != null
+                    && (
+                      // the owner may edit their own card, but must not be
+                      // able to hand it to someone else
+                      (
+                        request.auth.uid == resource.data.userId
+                        && request.resource.data.userId == resource.data.userId
+                      )
+                      ||
+                      // anyone logged in may like or unlike, but only by
+                      // exactly one, so the counter cannot be forged
+                      (
+                        request.resource.data.diff(resource.data)
+                          .affectedKeys().hasOnly(['likes'])
+                        && request.resource.data.likes is int
+                        && request.resource.data.likes >= 0
+                        && (
+                          request.resource.data.likes == resource.data.likes + 1
+                          || request.resource.data.likes == resource.data.likes - 1
+                        )
+                      )
+                    );
+
+      allow delete: if request.auth != null
+                    && request.auth.uid == resource.data.userId;
+    }
+
+    // users collection - one profile document per account.
+    // no password is ever stored here: authentication is handled entirely
+    // by Firebase Authentication.
+    match /users/{userId} {
+      // profiles are readable by any logged in user because usernames are
+      // shown on posts
+      allow read: if request.auth != null;
+
+      allow create: if request.auth != null
+                    && request.auth.uid == userId;
+
+      // the owner may edit their own profile, but the email is set at
+      // sign-up and must not be rewritten from the client
+      allow update: if request.auth != null
+                    && request.auth.uid == userId
+                    && request.resource.data.email == resource.data.email;
+
+      allow delete: if false;
+    }
+
+    // block everything that is not explicitly allowed above
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

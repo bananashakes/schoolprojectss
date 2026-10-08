@@ -1,0 +1,58 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "WriteOwnLogsOnly",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:ap-southeast-2:339163283850:log-group:/aws/lambda/mm-*"
+    },
+    {
+      "Sid": "ReadTheOneDatabaseSecretNeverWriteIt",
+      "Effect": "Allow",
+      "Action": "secretsmanager:GetSecretValue",
+      "Resource": "arn:aws:secretsmanager:ap-southeast-2:339163283850:secret:memematch/rds-*"
+    },
+    {
+      "Sid": "PublishToTheActivityTopicOnly",
+      "Effect": "Allow",
+      "Action": "sns:Publish",
+      "Resource": "arn:aws:sns:ap-southeast-2:339163283850:memematch-activity"
+    },
+    {
+      "Sid": "ManageActivitySubscriptionsOnThatTopic",
+      "Effect": "Allow",
+      "Action": [
+        "sns:Subscribe",
+        "sns:ListSubscriptionsByTopic"
+      ],
+      "Resource": "arn:aws:sns:ap-southeast-2:339163283850:memematch-activity"
+    },
+    {
+      "Sid": "SubscriptionLevelActionsCannotBeResourceScoped",
+      "Effect": "Allow",
+      "Action": [
+        "sns:Unsubscribe",
+        "sns:GetSubscriptionAttributes",
+        "sns:SetSubscriptionAttributes"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "VpcNetworkInterfacesCannotBeResourceScoped",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateNetworkInterface",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DeleteNetworkInterface",
+        "ec2:AssignPrivateIpAddresses",
+        "ec2:UnassignPrivateIpAddresses"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

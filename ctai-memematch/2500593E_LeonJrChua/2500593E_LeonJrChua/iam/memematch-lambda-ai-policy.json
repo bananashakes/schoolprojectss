@@ -1,0 +1,55 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "WriteOwnLogsOnly",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:ap-southeast-2:339163283850:log-group:/aws/lambda/mm-*"
+    },
+    {
+      "Sid": "OnlyTheMemeMatchFaceCollection",
+      "Effect": "Allow",
+      "Action": [
+        "rekognition:CreateCollection",
+        "rekognition:DescribeCollection",
+        "rekognition:IndexFaces",
+        "rekognition:SearchFacesByImage",
+        "rekognition:ListFaces",
+        "rekognition:DeleteFaces"
+      ],
+      "Resource": "arn:aws:rekognition:ap-southeast-2:339163283850:collection/memematch-faces"
+    },
+    {
+      "Sid": "DetectFacesCannotBeResourceScoped",
+      "Effect": "Allow",
+      "Action": "rekognition:DetectFaces",
+      "Resource": "*"
+    },
+    {
+      "Sid": "OnlyOurTrainedModel",
+      "Effect": "Allow",
+      "Action": "rekognition:DetectCustomLabels",
+      "Resource": "arn:aws:rekognition:ap-southeast-2:339163283850:project/memematch-expressions/version/*"
+    },
+    {
+      "Sid": "WriteUploadsPrefixOnlyNoReadNoDelete",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::memematch-bucket-339163283850-ap-southeast-2-an/uploads/*"
+    },
+    {
+      "Sid": "CaptionAnalysisOnlyNotTrainingOrPii",
+      "Effect": "Allow",
+      "Action": [
+        "comprehend:DetectSentiment",
+        "comprehend:DetectToxicContent"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

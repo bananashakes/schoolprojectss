@@ -1,0 +1,26 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "travel-expenses-6874d",
+          "appId": "1:140916549752:android:457f255ba50949beff258d",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "travel-expenses-6874d",
+          "configurations": {
+            "android": "1:140916549752:android:457f255ba50949beff258d",
+            "web": "1:140916549752:web:4516ee85a82eff14ff258d"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

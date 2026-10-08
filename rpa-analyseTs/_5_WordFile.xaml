@@ -1,0 +1,452 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_5_WordFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_DigestText" Type="InArgument(x:String)" />
+    <x:Property Name="in_PriceTable" Type="InArgument(x:String)" />
+    <x:Property Name="in_SummaryFacts" Type="InArgument(x:String)" />
+    <x:Property Name="in_RunTimestamp" Type="InArgument(x:String)" />
+    <x:Property Name="in_DigestSource" Type="InArgument(x:String)" />
+    <x:Property Name="in_ScreenshotPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_ReportFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_ProcessedStockCount" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_OcrFailedCount" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_FailedSymbols" Type="InArgument(x:String)" />
+    <x:Property Name="out_ReportPath" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ReportCreated" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="io_ErrorLogText" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>_5_WordFile_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Word</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Word.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Models</x:String>
+      <x:String>UiPath.GSuite.Activities.Docs.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Drive.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Sequence - Generate Word Report" sap:VirtualizedContainerService.HintSize="919.6,6502.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="reportFilePath" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap2010:Annotation.AnnotationText="Builds a formatted Word report from the digest, price table and run figures that stage three already produced, and saves it under a timestamped filename so reports accumulate rather than overwriting. Fails soft: if Word is unavailable the run continues and the Discord update is delivered without it." DisplayName="Sequence - Generate Word Report" sap:VirtualizedContainerService.HintSize="555.2,6479.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch sap2010:Annotation.AnnotationText="Wraps the whole stage so a Word failure never ends the run. This is the only stage that depends on Microsoft Office being installed on the robot machine, which makes it the most likely to fail on a different environment, and nothing downstream depends on it." DisplayName="Try Catch - Generate Word Report" sap:VirtualizedContainerService.HintSize="521.6,6318.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <TryCatch.Try>
+          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="520,5196" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign sap2010:Annotation.AnnotationText="Clears both output arguments at the start. Out arguments have no defaults in UiPath, so without this reset a failed run could hand back a report path from an earlier call and Main would try to attach a file that was never written." DisplayName="Multiple Assign - Reset Output Arguments" sap:VirtualizedContainerService.HintSize="486.4,257.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[out_ReportCreated]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[out_ReportPath]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:MultipleAssign>
+            <Assign sap2010:Annotation.AnnotationText="Builds a timestamped filename inside the existing output folder so every run adds a report instead of overwriting the last, which leaves a dated history on disk. The colons and space are stripped from the run timestamp first, because Windows filenames cannot contain them and Word would fail on the save without a useful error." DisplayName="Assign - Build Report File Path" sap:VirtualizedContainerService.HintSize="486.4,300.8" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[reportFilePath]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[System.IO.Path.Combine(in_ReportFolderPath, "AnalyseTS_Report_" + If(String.IsNullOrWhiteSpace(in_RunTimestamp), Now.ToString("yyyy-MM-dd_HHmmss"), in_RunTimestamp.Replace(":", "").Replace(" ", "_")) + ".docx")]</InArgument>
+              </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Assign>
+            <p:WordApplicationScope sap2010:Annotation.AnnotationText="Opens Word on the report path with Create if not exists enabled, so a fresh document is built each run rather than appending to an old one. Everything written to the document happens inside this card, and Word closes when the card ends." DisplayName="Word Application Scope - Create Run Report" FilePath="[reportFilePath]" sap:VirtualizedContainerService.HintSize="486.4,3329.6" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1">
+              <p:WordApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ui:WordDocument">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484.8,3121.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <p:WordAppendText sap2010:Annotation.AnnotationText="Document title. Written as the first append so it lands at the top of a newly created document." DisplayName="Append Text - Add Report Title" sap:VirtualizedContainerService.HintSize="451.2,213.6" sap2010:WorkflowViewState.IdRef="WordAppendText_1" Text="[&quot;AnalyseTS Stock Watchlist Report&quot; + Environment.NewLine + Environment.NewLine]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </p:WordAppendText>
+                    <p:WordAppendText sap2010:Annotation.AnnotationText="Records when the report was generated and whether the commentary below came from ChatGPT or the template fallback. Falls back to the current time if the run timestamp arrives blank, which happens when stage three failed before setting it." DisplayName="Append Text - Add Run Metadata" sap:VirtualizedContainerService.HintSize="451.2,279.2" sap2010:WorkflowViewState.IdRef="WordAppendText_2" Text="[&quot;Run: &quot; + If(String.IsNullOrWhiteSpace(in_RunTimestamp), Now.ToString(&quot;yyyy-MM-dd HH:mm:ss&quot;), in_RunTimestamp) + Environment.NewLine + &quot;Digest source: &quot; + in_DigestSource + Environment.NewLine + Environment.NewLine]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </p:WordAppendText>
+                    <p:WordAppendText sap2010:Annotation.AnnotationText="Section heading. Headings are appended as separate activities from their content so the document structure stays readable in the workflow outline." DisplayName="Append Text - Add Digest Heading" sap:VirtualizedContainerService.HintSize="451.2,246.4" sap2010:WorkflowViewState.IdRef="WordAppendText_3" Text="[&quot;Market Digest&quot; + Environment.NewLine]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </p:WordAppendText>
+                    <p:WordAppendText sap2010:Annotation.AnnotationText="The digest itself, either ChatGPT's commentary or the template fallback. Always populated, so this section is never empty regardless of how the run went." DisplayName="Append Text - Add Digest Body" sap:VirtualizedContainerService.HintSize="451.2,246.4" sap2010:WorkflowViewState.IdRef="WordAppendText_4" Text="[in_DigestText + Environment.NewLine + Environment.NewLine]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </p:WordAppendText>
+                    <p:WordAppendText sap2010:Annotation.AnnotationText="Section heading for the figures" DisplayName="Append Text - Add Price Table Heading" sap:VirtualizedContainerService.HintSize="451.2,200" sap2010:WorkflowViewState.IdRef="WordAppendText_5" Text="[&quot;Price Summary&quot; + Environment.NewLine]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </p:WordAppendText>
+                    <p:WordAppendText sap2010:Annotation.AnnotationText="The price table built in stage three. It was padded for a fixed width font, so set this paragraph to Consolas in the document afterwards if the columns do not line up, since Word's default proportional font ignores the padding." DisplayName="Append Text - Add Price Table" sap:VirtualizedContainerService.HintSize="451.2,262.4" sap2010:WorkflowViewState.IdRef="WordAppendText_6" Text="[in_PriceTable + Environment.NewLine + Environment.NewLine]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </p:WordAppendText>
+                    <If sap2010:Annotation.AnnotationText="Checks the screenshot exists before Word is asked to insert it. Stage three deliberately blanks the path when the capture failed, and Insert Picture throws on a missing file, so this check is what keeps a failed screenshot from taking the whole report down with it." Condition="[Not String.IsNullOrWhiteSpace(in_ScreenshotPath) AndAlso System.IO.File.Exists(in_ScreenshotPath)]" DisplayName="If - Dashboard Screenshot Available" sap:VirtualizedContainerService.HintSize="451.2,867.2" sap2010:WorkflowViewState.IdRef="If_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,353.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:WordAddImage Bookmark="{x:Null}" OccurrenceIndex="{x:Null}" Text="{x:Null}" sap2010:Annotation.AnnotationText="Embeds the dashboard image into the report. This is the only place the screenshot appears in a permanent document, since the Discord attachment is not archived anywhere." DisplayName="Add Picture - Dashboard Screenshot" sap:VirtualizedContainerService.HintSize="416,293.6" sap2010:WorkflowViewState.IdRef="WordAddImage_1" ImagePath="[in_ScreenshotPath]" InsertRelativeTo="Document" Position="End">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </p:WordAddImage>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,297.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:WordAppendText sap2010:Annotation.AnnotationText="States plainly that the image is missing rather than leaving a silent gap, so a reader can tell the difference between a run with no dashboard and a report that simply forgot to include one." DisplayName="Append Text - Note Screenshot Unavailable" sap:VirtualizedContainerService.HintSize="416,237.6" sap2010:WorkflowViewState.IdRef="WordAppendText_7" Text="[&quot;Dashboard screenshot was not available for this run.&quot; + Environment.NewLine + Environment.NewLine]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </p:WordAppendText>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <p:WordAppendText sap2010:Annotation.AnnotationText="The run's own figures, including which stocks failed OCR. Makes the report self contained: someone reading it a month later can see how complete that day's data was without opening the error log." DisplayName="Append Text - Add Run Statistics" sap:VirtualizedContainerService.HintSize="451.2,262.4" sap2010:WorkflowViewState.IdRef="WordAppendText_8" Text="[&quot;Run Statistics&quot; + Environment.NewLine + &quot;Stocks processed: &quot; + in_ProcessedStockCount.ToString + Environment.NewLine + &quot;OCR failures: &quot; + in_OcrFailedCount.ToString + If(String.IsNullOrWhiteSpace(in_FailedSymbols), &quot;&quot;, &quot; (&quot; + in_FailedSymbols + &quot;)&quot;) + Environment.NewLine + Environment.NewLine + in_SummaryFacts + Environment.NewLine + Environment.NewLine]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </p:WordAppendText>
+                    <p:WordAppendText sap2010:Annotation.AnnotationText="Repeats the disclaimer that already appears in the Discord message, so it is present on every output the process produces rather than only the ones sent to chat." DisplayName="Append Text - Add Disclaimer" sap:VirtualizedContainerService.HintSize="451.2,246.4" sap2010:WorkflowViewState.IdRef="WordAppendText_9" Text="[&quot;This report is monitoring information only and is not financial advice.&quot; + Environment.NewLine]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </p:WordAppendText>
+                    <p:WordExportToPdf sap2010:Annotation.AnnotationText="Produces a second copy as PDF, which opens on any machine without Word installed and previews directly in Discord. The Word file stays in the output folder as the archived original." DisplayName="Save Document as PDF" FilePath="[reportFilePath.Replace(&quot;.docx&quot;, &quot;.pdf&quot;)]" sap:VirtualizedContainerService.HintSize="451.2,237.6" sap2010:WorkflowViewState.IdRef="WordExportToPdf_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </p:WordExportToPdf>
+                  </Sequence>
+                </ActivityAction>
+              </p:WordApplicationScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </p:WordApplicationScope>
+            <If sap2010:Annotation.AnnotationText="Confirms a real file is created before success is reported. Word can close without raising an exception and still leave nothing saved, for example if the path was locked, so the file check is what makes the success flag trustworthy." Condition="[System.IO.File.Exists(reportFilePath) AndAlso New System.IO.FileInfo(reportFilePath).Length &gt; 0]" DisplayName="If - Report File Was Created" sap:VirtualizedContainerService.HintSize="486.4,1248" sap2010:WorkflowViewState.IdRef="If_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,773.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap2010:Annotation.AnnotationText="Hands the path back so Main can attach the report to the Discord message. Set only after the file check has passed, so the path can never point at a document that was not written." DisplayName="Assign - Record Report Path" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[out_ReportPath]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[reportFilePath]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <Assign sap2010:Annotation.AnnotationText="Set only on the success branch, so Main can safely skip the report send when this is false rather than attempting an attachment that does not exist." DisplayName="Assign - Mark Report Created" sap:VirtualizedContainerService.HintSize="416,235.2" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[out_ReportCreated]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">[True]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <ui:LogMessage sap2010:Annotation.AnnotationText="Records the path at Info level so the file can be found from the Orchestrator log without opening the output folder." DisplayName="Log Message - Word Report Created" sap:VirtualizedContainerService.HintSize="416,226.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[INFO] Word report created at &quot; &amp; reportFilePath]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,267.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw sap2010:Annotation.AnnotationText="Thrown when Word reported no error but wrote nothing. Caught by this workflow's own Catch, so it becomes a failure result rather than ending the run, and the message names the two causes worth checking first." DisplayName="Throw - Word Report Not Created" Exception="[New System.Exception(&quot;Word closed without error but no report file was created at &quot; &amp; reportFilePath &amp; &quot;. Check folder permissions and that the path is not open in another application.&quot;)]" sap:VirtualizedContainerService.HintSize="416,207.2" sap2010:WorkflowViewState.IdRef="Throw_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Throw>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="520,823.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage sap2010:Annotation.AnnotationText="Warn not Error, because the run still delivers a complete Discord update. Only the archived document is lost." DisplayName="Log Message - Word Report Failed" sap:VirtualizedContainerService.HintSize="486.4,235.2" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;[WARNING] Word report could not be generated. Error: &quot; + exception.Message]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:LogMessage>
+                <Assign sap2010:Annotation.AnnotationText="Records the failure as a WARNING and states the consequence in the same line, so the log shows both cause and effect. WARNING rather than CRITICAL because Word is the only stage whose failure costs the user nothing they cannot get from the Discord message." DisplayName="Assign - Add Word Report Failure To Error Log" sap:VirtualizedContainerService.HintSize="486.4,284.8" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[io_ErrorLogText]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[io_ErrorLogText + "[WARNING] Word report could not be generated. The Discord update will be sent without it. Error: " + exception.Message + Environment.NewLine]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <Assign sap2010:Annotation.AnnotationText="Forces the flag false on the failure path. Already false from the reset at the top, so this is defensive, and it keeps the flag correct if the reset is ever moved." DisplayName="Assign - Mark Report Not Created" sap:VirtualizedContainerService.HintSize="486.4,243.2" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[out_ReportCreated]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">[False]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+              </Sequence>
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+        <TryCatch.Finally>
+          <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="520,89.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </TryCatch.Finally>
+      </TryCatch>
+    </Sequence>
+  </Sequence>
+</Activity>

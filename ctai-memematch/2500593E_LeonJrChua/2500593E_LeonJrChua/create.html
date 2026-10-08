@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Upload a reaction photo and create a matched meme." />
+  <title>MemeMatch | Create Meme</title>
+  <link rel="icon" href="assets/brand/memematch-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/config.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@6.3.12/dist/amazon-cognito-identity.min.js" defer></script>
+  <script src="js/cognito.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/create.js" defer></script>
+</head>
+<body data-page="create">
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a href="index.html" class="brand-mark" aria-label="MemeMatch home"><img src="assets/brand/memematch-logo.svg" alt="" class="brand-logo" width="46" height="46" /><span>MemeMatch</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" data-page-link="home">Feed</a>
+        <a href="create.html" data-page-link="create">Create Meme</a>
+        <a href="profile.html" data-page-link="profile">Profile</a>
+        <a href="remix.html" data-page-link="remix">Remix</a>
+        <a href="login.html" data-page-link="login" class="auth-link" id="accountLink">Account</a>
+      </div>
+
+      <div class="nav-bell" id="navBell">
+        <button class="bell-button" id="bellButton" type="button" aria-label="Notifications" aria-expanded="false" aria-haspopup="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.7 21a2 2 0 0 1-3.4 0" /></svg>
+          <span class="bell-badge hidden" id="bellBadge">0</span>
+        </button>
+
+        <div class="notification-panel hidden" id="notificationPanel" role="region" aria-label="Notifications"></div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="mainContent" class="page-shell">
+    <section class="section-stack" aria-labelledby="createTitle">
+      <div class="compact-heading">
+        <div class="selected-template-banner hidden" id="selectedTemplateBanner">
+          <img id="selectedTemplateImage" alt="" />
+          
+          <div>
+            <span class="status-badge success">Template locked</span>
+            <h2 id="selectedTemplateName">Selected template</h2>
+            <p>Your reaction will be recreated with this identified meme.</p>
+          </div>
+          <button class="btn btn-secondary" id="clearTemplateBtn" type="button">Use automatic match</button>
+        </div> 
+
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Create a match</span>
+        <h1 class="page-title" id="createTitle">Give us your best reaction.</h1> 
+        <p class="page-copy">Choose one clear face. MemeMatch will handle the mood-reading and meme-hunting.</p>
+        
+        <p class="hand-note heading-note">good lighting helps →</p>
+      </div>
+
+      <div class="upload-grid">
+        <div class="upload-box">
+          <label class="drop-zone" id="dropZone" for="imageUpload">
+            <input id="imageUpload" type="file" accept="image/png,image/jpeg,image/jpg,image/webp" />
+
+            <div class="upload-placeholder" id="uploadPlaceholder">
+              <div class="upload-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4m0 0-5 5m5-5 5 5M4 20h16" /></svg>
+              </div>
+              <h2>Drop the reaction here</h2>
+              <p>JPG, PNG or WebP · Maximum 8 MB</p>
+              <span class="btn btn-secondary" role="button">Choose image</span>
+            </div>
+
+            <div class="preview-frame hidden" id="previewFrame">
+              <img id="previewImage" alt="Selected reaction preview" />
+            </div>
+          </label>
+
+          <!-- Outside the label on purpose: the drop zone is a <label for>, so
+               anything inside it opens the file picker when clicked. -->
+          <div class="capture-switch">
+            <button class="btn btn-secondary" id="cameraToggle" type="button">Take a photo instead</button>
+          </div>
+
+          <div class="camera-panel hidden" id="cameraPanel">
+            <video id="cameraStream" playsinline autoplay muted></video>
+
+            <div class="camera-controls">
+              <button class="btn btn-primary" id="captureBtn" type="button">Capture</button>
+              <button class="btn btn-secondary" id="cameraCancel" type="button">Cancel</button>
+            </div>
+
+            <p class="field-error" id="cameraError" role="alert"></p>
+          </div>
+        </div>
+
+        <aside class="api-card" aria-labelledby="matchTitle">
+          <span class="status-badge success">Amazon Rekognition</span>
+          <h2 id="matchTitle">From face to punchline</h2>
+          <p>Your image moves through three quick steps before the meme reveal.</p>
+
+          <div class="api-steps">
+            <div class="api-step"><strong>Check the photo</strong><span>Rekognition confirms one clear, usable face.</span></div>
+            <div class="api-step"><strong>Read the expression</strong><span>The trained classifier reads it, with the stock emotion API as fallback.</span></div>
+            <div class="api-step"><strong>Pull the match</strong><span>Pair the detected expression with a meme from the database.</span></div>
+          </div>
+
+          <button class="btn btn-primary btn-full" id="analyseBtn" type="button" disabled>Find my meme</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

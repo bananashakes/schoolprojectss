@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Upload a meme you like, pick its blank template and remix your own version." />
+  <title>MemeMatch | Remix</title>
+  <link rel="icon" href="assets/brand/memematch-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/config.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@6.3.12/dist/amazon-cognito-identity.min.js" defer></script>
+  <script src="js/cognito.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/remix.js" defer></script>
+</head>
+<body data-page="remix">
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a href="index.html" class="brand-mark" aria-label="MemeMatch home"><img src="assets/brand/memematch-logo.svg" alt="" class="brand-logo" width="46" height="46" /><span>MemeMatch</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" data-page-link="home">Feed</a>
+        <a href="create.html" data-page-link="create">Create Meme</a>
+        <a href="profile.html" data-page-link="profile">Profile</a>
+        <a href="remix.html" data-page-link="remix">Remix</a>
+        <a href="login.html" data-page-link="login" class="auth-link" id="accountLink">Account</a>
+      </div>
+
+      <div class="nav-bell" id="navBell">
+        <button class="bell-button" id="bellButton" type="button" aria-label="Notifications" aria-expanded="false" aria-haspopup="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.7 21a2 2 0 0 1-3.4 0" /></svg>
+          <span class="bell-badge hidden" id="bellBadge">0</span>
+        </button>
+
+        <div class="notification-panel hidden" id="notificationPanel" role="region" aria-label="Notifications"></div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="mainContent" class="page-shell">
+    <section class="section-stack" aria-labelledby="remixTitle">
+      <div class="compact-heading">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Remix studio</span>
+        <h1 class="page-title" id="remixTitle">Found a meme you like? Remix it.</h1>
+        <p class="page-copy">Drop in the meme that inspired you, pick the matching blank template from our library, and caption your own version.</p>
+        <p class="hand-note heading-note">steal the format. not the joke.</p>
+      </div>
+
+      <div class="remix-editor" aria-labelledby="remixEditorTitle">
+        <div class="remix-editor-heading">
+          <h2 class="section-title" id="remixEditorTitle">Caption it</h2>
+          <p class="hand-note" id="currentPickNote">current pick: —</p>
+        </div>
+        
+        <div class="upload-grid">
+          <div class="remix-stage-frame">
+            <div class="meme-stage">
+              <img id="remixStageImage" alt="Selected blank meme template" />
+              <span class="meme-text top hidden" id="remixTextTop"></span>
+              <span class="meme-text bottom hidden" id="remixTextBottom"></span>
+            </div>
+          </div>
+
+          <form class="remix-caption-card" id="remixForm">
+            <h2>Write the caption</h2>
+            <p>Type straight onto the template. Leave a line empty to skip it.</p>
+
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="remixTopInput">Top text</label>
+                <input id="remixTopInput" type="text" maxlength="60" placeholder="TOP TEXT" autocomplete="off" />
+              </div>
+
+              <div class="field-group">
+                <label for="remixBottomInput">Bottom text</label>
+                <input id="remixBottomInput" type="text" maxlength="60" placeholder="BOTTOM TEXT" autocomplete="off" />
+              </div>
+            </div>
+
+            <div class="identifier-actions">
+              <button class="btn btn-primary" id="postRemixBtn" type="submit">Post to feed</button>
+            </div>
+
+            <p class="hand-note">white text. black outline. classic.</p>
+          </form>
+        </div>
+      </div>
+
+      <div class="upload-grid">
+        <div class="remix-picker">
+          <h2 class="section-title">Pick your blank template</h2>
+
+          <div class="template-search">
+            <label class="visually-hidden" for="templateSearch">Search templates</label>
+            <input id="templateSearch" type="search" placeholder="search templates… try happy, cat, praying" autocomplete="off" />
+          </div>
+
+          <div class="template-gallery" id="templateGallery"></div>
+          <p class="hand-note gallery-empty hidden" id="templateEmptyState">no templates match that — try another word</p>
+          
+        </div>
+
+        <aside class="api-card">
+          <span class="status-badge success">Remix studio</span>
+          <h2>From inspiration to your version</h2>
+          <p>Keep the reference in view, grab the blank template it uses, and remix it with your own caption.</p>
+
+          <div class="api-steps identifier-steps">
+            <div class="api-step"><strong>Find the meme</strong><span>Search for the perfect template.</span></div>
+            <div class="api-step"><strong>Pick the template</strong><span>Choose its blank template from the gallery below.</span></div>
+            <div class="api-step"><strong>Remix it</strong><span>Add your top and bottom text and post it.</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
