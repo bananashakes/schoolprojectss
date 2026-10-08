@@ -1,0 +1,414 @@
+html {
+    scrollbar-gutter: stable;
+}
+
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'poppins';
+    font-size: 20px;
+    background: #e4ebf0;
+    color: #111827;
+}
+
+h2 {
+    text-align: center;
+}
+.top-navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background-color: #cbded3;
+    border-radius: 18px;
+
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+
+}
+
+.nav-left, .nav-center, .nav-right {
+    /*take equal width*/
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.nav-left {
+    justify-content: flex-start;
+}
+
+.nav-center{
+    justify-content: center;
+}
+.nav-right {
+    justify-content: flex-end;
+}
+
+.nav-links {
+    padding: 8px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #404a57;
+    transition: 0.3s;
+}
+
+.nav-links i {
+    margin-right: 8px;
+}
+
+.nav-links:hover {
+    background-color: #e0e2dc;
+
+}
+
+.nav-links.active {
+    background-color: #dcfce7;
+    color: #047857;
+    cursor: pointer;
+}
+
+
+button.nav-links {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    color: #404a57;
+    font-weight: 500;
+}
+
+.nav-home-btn:hover {
+    
+    background-color: #e6f0ff;    
+}
+
+/* ---------- Form Card ---------- */
+.update-animals-form {
+    max-width: 720px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 26px 28px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+}
+
+/* Labels */
+.update-animals-form label {
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+}
+
+/* Inputs and select */
+.update-animals-form input[type="text"],
+.update-animals-form input[type="number"],
+.imageurlinput,
+.update-animals-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    background-color: #fff;
+    font-size: 18px;
+    outline: none;
+    transition: 0.2s;
+}
+.imageurlinput{
+    width: 100%;
+}
+
+.update-animals-form input[type="text"]:focus,
+.update-animals-form input[type="number"]:focus,
+.update-animals-form select:focus {
+    border-color: #94a3b8;
+    box-shadow: 0 0 0 4px rgba(148, 163, 184, 0.25);
+}
+
+/* Radio groups */
+.update-animals-form input[type="radio"] {
+    transform: scale(1.1);
+    margin-right: 8px;
+}
+
+.update-animals-form label input[type="radio"] {
+    margin-left: 0;
+}
+
+/* Make radio options look spaced */
+.update-animals-form label:has(input[type="radio"]) {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 18px;
+    margin-top: 6px;
+    font-weight: 400;
+}
+
+/* Submit button */
+.update-animals-form button[type="submit"] {
+    margin-top: 22px;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: none;
+    background-color: #111827;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.update-animals-form button[type="submit"]:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+}
+
+.update-animals-form button[type="submit"]:active {
+    transform: translateY(0px);
+    opacity: 0.88;
+}
+
+.radio-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.radio-btn.female, 
+.radio-btn.male {
+    width: 200px;
+}
+
+.radio-btn.available, 
+.radio-btn.reserved,
+.radio-btn.adopted{
+    width: 150px;
+}
+
+.radio-btn {
+    font-size: 20px;
+    font-family: poppins;
+    padding: 8px 20px;
+    background-color: #f1f5f9;
+    color: #475569;
+    border-radius: 12px;
+    border: 2px solid #404854;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+.radio-btn:hover {
+    border-color: #94a3b8;
+    background-color: #f1f5f9;
+    color: #334155;
+    transform: translateY(-2px);
+}
+.radio-input:checked + .radio-btn.male {
+    border-color:rgba(0, 217, 255, 0.45);
+    color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    background-color: rgba(0, 217, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.radio-input:checked + .radio-btn.female {
+    border-color:#ec4899;
+    color: #ec4899;
+    box-shadow: 0 0 18px rgba(236, 72, 153, 0.35);
+    background-color: rgba(236, 72, 153, 0.15);
+    transform: scale(1.1);
+}
+.radio-input {
+    display: none;
+}
+
+.radio-input:checked + .radio-btn.available {
+    border-color:#2e7d23;
+    color: #2e7d23;
+    box-shadow: 0 0 10px rgba(46, 125, 35, 0.45);
+    background-color: rgba(200, 230, 201, 0.35);
+    transform: scale(1.1);
+}
+
+.radio-input:checked + .radio-btn.reserved {
+    border-color:#ca622a;
+    color: #ca622a;
+    box-shadow:  0 0 10px rgba(202, 98, 42, 0.45);
+    background-color:  rgba(255, 224, 178, 0.4);
+    transform: scale(1.1);
+}
+
+.radio-input:checked + .radio-btn.adopted {
+    border-color:#616161;
+    color: #616161;
+    box-shadow:  0 0 10px rgba(97, 97, 97, 0.45);
+    background-color: rgba(224, 224, 224, 0.45);
+    transform: scale(1.1);
+}
+
+/*page layout style*/
+.update-layout{
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 40px;
+    max-width: 1700px;
+    margin: auto;
+    align-items: start;
+    justify-content: center;
+}
+
+.image-manage-card{
+    background: #cbded3;
+    border-radius: 18px;
+    padding: 20px;
+    }
+
+.divider{
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #3f3a3a;
+}
+
+.add-image-row{
+    display: flex;
+    gap: 10px;
+    margin: 10px 0 20px;
+}
+
+.add-image-row input{
+    flex: 1;
+}
+
+.other-images-wrap{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+}
+.extra-image {
+    width: 100%;                  
+    height: auto;                   /* Height scales with width */
+    aspect-ratio: 400 / 260;        /*  Maintains 400×260 proportions */
+    border-radius: 8px;             
+    display: block;                 /* Ensures proper rendering */
+}
+.defaultimage-preview {
+    width: 100%;              /* Responsive to container */
+    height: auto;             /*  Height scales with width */
+    aspect-ratio: 600 / 450;  /*  Maintains 600×450 proportions */
+    border-radius: 8px;
+    display: block;
+    max-width: 600px;
+}
+
+.replaceimgbtn {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+    background: #e5e7eb;
+    color: #111827;
+    margin-top: 4px;
+}
+
+.extra-image-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+.btn{
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover{
+    transform: translateY(-1px);
+}
+.extra-image-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+    min-width: 0;
+}
+
+.replace-default-img {
+    margin-top: 4px;
+}
+
+/*set default button style*/
+.btn.set-default {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.btn.set-default:hover {
+    background: #bae6fd;
+}
+
+/*replace other img button style*/
+.btn.replace-img {
+    background: #cce6b8;
+    color: #2d323c;
+}
+.btn.replace-img:hover {
+    background: #93c496;
+}
+
+/*set delete button style*/
+.btn.delete-img {
+    background: #fee2e2;
+    color: #b91c1c;   
+}
+.btn.delete-img:hover {
+    background: #dbb5b5;
+
+}
+
+/*add other img button style*/
+.btn.add-extra-img {
+    background: #b6e7c0;
+    color: #111827;
+}
+.btn.add-extra-img:hover {
+    background: #93c496;
+}
+.page-header {
+  display: grid;
+  align-items: center;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #41ab5fd1;
+    transition: 0.3s;
+    margin-left: 50px;
+    font-size: 20px;
+    display: inline-flex;
+    justify-self: start;
+}
+.back-link:hover {
+    color: #8d52f3;
+    text-decoration: underline;
+}
+
+.page-title {
+    justify-self: center;
+}

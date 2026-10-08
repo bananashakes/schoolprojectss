@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add New Animal</title>
+        <script src="./js/animals.js"></script>
+        <link rel="stylesheet" href="css/add_animalstyle.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    <body onload="loaddropdownforms()" >
+
+        <header class="top-navigation-bar">
+
+            <nav class="nav-left">
+
+                <span class="title">Animal Adoption Website</span>
+            </nav>     
+
+            <nav class="nav-center">
+
+            </nav>
+
+            <nav class="nav-right">
+
+                <button  class="nav-links" onclick="gobacktohome()" >
+                    <i class="fas fa-home"></i> Animals
+
+                </button>
+                <span class="nav-links active">
+                    <i class="fas fa-plus"></i> Add Animals
+
+                </span>
+            </nav>
+        </header>
+
+        <h2 class="page-header">
+            <!--prevents browser from adding # to the back of the link (JS handles redirect)-->
+            <a href="#" class="back-link" onclick="gobacktohome(); return false;">Back to Animals</a>
+            <span class="page-title">Animal Details</span>
+        </h2>
+
+        <form id="insertForm" method="post" onsubmit="addanimaldata(); return false">
+
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" maxlength="40" required><br>
+
+            <label for="age_year">Age (year):</label><br>
+            <input type="number" id="age_year" name="age_year" step="1" min="0" max="255" required><br>
+
+            <label for="age_month">Age_month:</label><br>
+            <input type="number" id="age_month" name="age_month" step="1" min="1" max="11" required><br>
+
+            <label for="gender">Gender:</label><br>
+            <div class="radio-container">
+                <label>
+                    <input type="radio" name="gender" value="Male" class="radio-input" required>
+                    <span class="radio-btn male">Male</span>
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="Female" class="radio-input">
+                    <span class="radio-btn female">Female</span>
+                </label>
+            </div>
+
+
+            <label>Species</label><br>
+            <select id="species_id" name="species_id" required>
+            <option value="">Select species</option>
+            </select><br>
+
+            <label>Breed</label><br>
+            <select id="breed_id" name="breed_id" required>
+            <option value="">Select breed</option>
+            </select><br>
+
+            <label for="temperament">Temperament/Personality (max 150 char):</label><br>
+            <input type="text" id="temperament" name="temperament" maxlength="150" required><br>
+
+            <label for="adoption_status">Adoption Status:</label><br>
+            <div class="radio-container">
+                <label>
+                    <input type='radio' id="Available" name='adoption_status' value= "Available" class="radio-input" required>
+                    <span class="radio-btn available">Available</span>
+                </label>
+
+                <label>
+                    <input type='radio' id="Reserved" name='adoption_status' value= "Reserved" class="radio-input" >
+                    <span class="radio-btn reserved">Reserved</span>
+                </label>
+
+                <label>
+                    <input type='radio' id="Adopted" name='adoption_status' value= "Adopted" class="radio-input">
+                    <span class="radio-btn adopted">Adopted</span>
+                </label>
+            </div>
+
+            <label for="image_url">Default Image URL:</label><br>
+            <input type="text" id="image_url" name="image_url" required><br>
+
+            <label>Other Image URLs (optional):</label><br>
+
+            <div id="extraimagescontainer"></div>
+            <button type="button" class="add-extra-image-btn" onclick="addextraimageinput()">+ Add another image</button>
+
+
+            <br><br>
+
+            <button type="submit">Submit</button>
+
+
+        </form>
+    </body>
+</html>

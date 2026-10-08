@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Animal Details</title>
+        <script src="./js/animals.js"></script>
+        <link rel="stylesheet" href="css/admin_animaldetails_style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    <body onload="loadanimaldetails()" data-role="admin" >
+
+        <header class="top-navigation-bar">
+
+            <nav class="nav-left">
+
+                <span class="title">Animal Adoption Website</span>
+            </nav>     
+
+            <nav class="nav-center">
+
+            </nav>
+            <nav class="nav-right">
+
+
+            <a href="admin_homepage.html" class="nav-links">
+                
+                <i class="fas fa-home"></i> Animals
+            </a>
+
+            <a href="add_animals.html?from=admin" class="nav-links">
+                <i class="fas fa-plus"></i>Add Animals
+            </a>
+
+            </nav>
+        </header>
+        
+
+        <h2 class="page-header">
+            <a href="admin_homepage.html" class="back-link">Back to Animals</a>
+            <span class="page-title">Animal Details</span>
+        </h2>
+        <div class="animal-detail-layout">
+            <div id="animalimagescontainer"></div>
+            <div id="animaldetailscontainer"></div>
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Adoption Center</title>
+    <link rel="stylesheet" href="css/public_homepage_style.css">
+    <script src="./js/animals.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body onload="loadanimaldata()" data-role="public">
+    <header class="top-navigation-bar">
+
+        <nav class="nav-left">
+
+            <span class="title">Animal Adoption Website</span>
+        </nav>     
+
+        <nav class="nav-center">
+
+        </nav>
+
+
+    <nav class="nav-right">
+
+
+            <a class="nav-links active">
+                <i class="fas fa-home"></i> Animals
+            </a>
+
+            <a href="add_animals.html?from=public" class="nav-links">
+                <i class="fas fa-plus"></i>Add Animals
+            </a>
+
+        </nav>
+    </header>
+
+    <div class="page-layout">
+
+        <div class="filter-float">
+            <button type="button" class="btn-filter-toggle" onclick="togglefilters()">
+            <i class="fas fa-sliders-h"></i> Filters
+            </button>
+        </div>
+
+        <div class="filter-panel" id="filterPanel">
+            <button type="button" class="filter-close-btn" onclick="closefilters()"><i class="fas fa-x"></i></button>
+            <span class="filter-title">Filters</span>
+
+            <div id="speciesfiltercontainer" class="species-filter"></div>
+            <button type="button" class="btn-clear-filter" onclick="clearallfilters()">Clear filters</button>
+        </div>
+
+        <div class="main-content">
+            <div class="stats-row">
+                <div class="stat-container available">
+                    <i class="fas fa-paw"></i>
+                    <div class="stat-num" id="stat-available">-</div>
+                    <p>Animals Looking for Homes</p>
+                </div>
+                <div class="stat-container adopted">
+                    <i class="fas fa-heart"></i>
+                    <div class="stat-num" id="stat-adopted">-</div>
+                    <p>Happy Adoptions Completed</p>
+                </div>
+                <div class="stat-container reserved">
+                    <i class="fas fa-hourglass-half"></i>
+                    <div class="stat-num" id="stat-reserved">-</div>
+                    <p>Adoptions in Progress</p>
+                </div>
+            </div>            
+            <div id="dynamicanimalsdatalist">
+            <table>
+                <tr> <!--1 row -->
+                    <td> <!-- 1 column -->
+                    <h4>Whats the animal name?</h4> <!-- animal Name -->
+                    <img src="images/thunk.jpg" alt="animal 1 image" width="500" height="300"> <!--
+                    animal Image -->
+                    </td>
+                    <td> <!-- 2 column -->
+                    <h4>Whats the animal name?</h4> <!-- animal Name -->
+                    <img src="images/thunk.jpg" alt="animal 2 Image" width="500" height="300"> <!--
+                    animal Image -->
+                    </td>
+                    <td> <!-- 3 column -->
+                    <h4>Whats the animal name?</h4> <!-- Restaurant Name -->
+                    <img src="images/thunk.jpg" alt="animal 3 Image" width="500" height="300"> <!--
+                    animal Image -->
+                    </td>
+                </tr>
+            </table>
+            </div>        
+        </div>
+    </div>
+
+</body>
+</html>
